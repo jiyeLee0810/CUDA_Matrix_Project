@@ -53,9 +53,9 @@ int main() {
     float time_ms = 0;
     cudaEventElapsedTime(&time_ms, start, end);
 
-    cudaMemcpy(d_P, h_P, size, cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_P, d_P, size, cudaMemcpyDeviceToHost);
     printf("Execution time for kernel: %.2f ms\n", time_ms);
-    // printf("results: %d\n", h_P);
+    printf("results: %d\n", h_P);
 
     free(h_M);
     free(h_N);
